@@ -1,7 +1,7 @@
 # Project: Build a campaign card front and back using HTML, CSS, and JavaScript.
 
 ## To Run
-run `index.html` on a local webserver, I used vscode's live server extension.
+run `index.html` on a local server, I used vscode's live server extension.
 If ran without a local server there will be a cors error
 
 ## Prompt
