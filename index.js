@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener('DOMContentLoaded', () => {
 	// console.log('index.js is loaded');
 	loadData();
 });
@@ -22,7 +22,7 @@ function loadData() {
 		.catch((error) => console.log(error));
 }
 
-// Because the json data returned has an error( keys aren't strings), we must change them to strings
+// Because the json data returned has an error (keys aren't strings, therefore can't be parsed with JSON parser), we must change them to strings first using .replace
 function responseParser(string) {
 	string = string.replace(/name/g, `"name"`).replace(/amount/g, `"amount"`).replace(/type/g, `"type"`);
 	let data = JSON.parse(string);
@@ -35,8 +35,8 @@ function showData(data) {
 	data.forEach((obj) => {
 		let { name, amount, type } = obj;
 		total = total + amount;
+		// create new row & inser items into cell
 		let newRow = table.insertRow(1);
-		// create individual items
 		let nameItem = newRow.insertCell(0);
 		nameItem.innerHTML = name;
 		let amountItem = newRow.insertCell(1);
