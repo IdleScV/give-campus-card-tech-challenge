@@ -1,4 +1,9 @@
 # Project: Build a campaign card front and back using HTML, CSS, and JavaScript.
+
+## To Run
+run `index.html` on a local webserver, I used vscode's live server extension.
+If ran without a local server there will be a cors error
+
 ## Prompt
 ### CSS
 Please implement the [attached design](./../campaign_card.png) using HTML and CSS. You may use any css preprocessor such as less, sass, postcss, etc, but do not use a frontend css framework such as bootstrap. This portion of the homework is to assess your experience with writing css.

@@ -1,24 +1,21 @@
 window.addEventListener('DOMContentLoaded', (event) => {
-	console.log('index.js is loaded');
+	// console.log('index.js is loaded');
 	loadData();
 });
 
-// Using a promise to return data
+// Using a promise to return data for error handling
 function get(url) {
 	return new Promise((resolve, reject) => {
 		const req = new XMLHttpRequest();
 		req.open('GET', url);
-		req.onload = () => (
-			console.log(req.status), req.status === 200 ? resolve(req.response) : reject(Error(req.statusText))
-		);
+		req.onload = () => (req.status === 200 ? resolve(req.response) : reject(Error(req.statusText)));
 		req.onerror = (e) => reject(Error(`Network Error: ${e}`));
 		req.send();
 	});
 }
 
 function loadData() {
-	console.log('fetching data');
-	get('.donors.json')
+	get('./donors.json')
 		.then((response) => {
 			return responseParser(response);
 		})
